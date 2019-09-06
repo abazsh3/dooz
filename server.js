@@ -7,11 +7,21 @@ app.use(bodyParser.json());
 app.post('/users', (req, res) => {
     console.log("post called");
     console.log(req.body.userName, req.body.id);
-    users.push({
-        name: req.body.userName,
-        id: req.body.id,
-        roomId:req.body.roomId
-    });
+    let canPush=true;
+    for (let i=0;i<users.length;i++){
+        if (users[i].id===req.body.id){
+            canPush=false;
+        }
+
+    }
+    if (canPush){
+        users.push({
+            name: req.body.userName,
+            id: req.body.id,
+            roomId:req.body.roomId
+        });
+    }
+
 
     console.log(users);
 })
