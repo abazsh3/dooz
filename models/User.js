@@ -5,9 +5,7 @@ let UserSchema = new mongoose.Schema( {
         type: String
     },
     id:{
-        type: Number,
-        unique:true,
-        dropDups:true
+        type: Number
     },
     date:{
         type:Date
