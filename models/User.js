@@ -8,6 +8,9 @@ let UserSchema = new mongoose.Schema( {
         type: Number,
         unique:true,
         dropDups:true
+    },
+    date:{
+        type:Date
     }
 
 

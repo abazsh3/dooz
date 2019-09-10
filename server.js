@@ -2,6 +2,7 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let {User} = require('./models/User');
 let {mongoose} = require('./db/mongoose');
+let moment=require('moment');
 let app = express();
 const port = process.env.PORT || 3000;
 let users = [];
@@ -27,7 +28,8 @@ app.post('/users', (req, res) => {
     }
     let user = new User({
         id: req.body.id,
-        username: req.body.userName
+        username: req.body.userName,
+        date:moment(new Date())
     });
     user.save().then(() => {
         console.log("user saved")
